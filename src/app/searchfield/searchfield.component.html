@@ -1,0 +1,71 @@
+
+
+<form [formGroup]="reactiveform">
+<div class="container">
+  <div class="row">
+      <div class="col-12 searchcol "> 
+          <div class="search">
+              <label for="colname" class="form-label">Search Word<label class="astric">*</label></label>
+              <input type="text" id="colname" class="form-control " name="colname" [(ngModel)]="colname" (ngModelChange)="search($event)" formControlName="searchvalue">
+              <button class="btn btn-primary" type="button" (click)="searchColumns()">Search</button>
+          </div>
+      </div>
+  </div>
+</div>
+</form>
+
+
+    
+    <div class="table-container">
+       
+        <table class="table table-bordered" *ngIf="col && col.length > 0">
+          <thead>
+            <tr>
+              <th scope="col">Sl</th>
+              <th scope="col">Column Name</th>
+              <th scope="col">Label</th>
+              <th scope="col">Comment</th>
+              <th scope="col">Click To</th>
+              <th scope="col">Click To</th>
+              <th scope="col">Click To</th>
+              <th scope="col">Click To</th>
+              <th scope="col">Click To</th>
+              <th scope="col">Click To</th>
+              <th scope="col">Click To</th>
+            </tr>
+          </thead>
+       
+      
+        
+       
+          <tbody>
+           <tr *ngFor="let column of col| paginate:{itemsPerPage:10,currentPage:page,id:'formPagination'}; let i = index ">
+              <td >{{ i + slNumberStart }}</td>
+              <td>{{ column.name }}</td>
+              <td> </td>
+              <td> </td>
+              <td><a routerLink="/viewfields" (click)="navigateToView(column.id,column.name)">View Fields</a></td>
+              <td><a routerLink="/editfields" (click)="navigateToEdit(column.id,column.name)">Edit Fields</a></td>
+              <td><a routerLink="/addfields" (click)="navigateToAdd(column.id,column.name)">Add Fields</a></td>
+              <td><a href="">Delete</a></td>
+              <td><a href="">Reinherit</a></td>
+              <td><a href="">Show Where Used</a></td>
+              <td><a href="">Show Where Disinherit</a></td>
+            </tr>
+          </tbody>
+        </table>
+      
+        
+
+    </div>
+    <div class="has-text-center">
+      <pagination-controls (pageChange)="handlePageChange($event)"  name="formPagination" id="formPagination" ></pagination-controls>
+  </div>
+
+  
+
+
+
+
+
+

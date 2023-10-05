@@ -1,0 +1,130 @@
+<div class="container">
+    <div class="row">
+      <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 container-fluid ">
+        <h5 class="head">UPDATE FIELD DETAILS</h5>
+        <div *ngIf="data && data.length > 0">      
+
+        <form *ngFor="let field of data">
+          <div  >
+            <form class="form-con">
+              <div class="form-group">
+                <label class="form-label custom-label" for="textareaInput">Column Name : {{columnname}}</label>
+              </div>
+
+
+            
+            <div class="form-group">
+                <label for="FId">Form Name:</label>
+                <input type="text" class="form-control" id="FId" [(ngModel)]="field.formName" name="FId">
+              </div>
+              <button (click)="showAdditionalContent = !showAdditionalContent" >Change?</button>
+              <div *ngIf="showAdditionalContent">
+
+                <div class="form-group">
+                  <label class="form-label">Form Name:</label>
+                  <div class="select-container">
+                    <select *ngIf="Formrecords && Formrecords.length > 0"  [(ngModel)]="selectedForm"   name="Formrecords" >
+                      <option value="">Select an option</option>
+                      <option *ngFor="let form of Formrecords" [ngValue]="form">>{{ form.name }}</option>
+                    </select>
+                  </div>                    
+                </div>
+              </div>
+
+
+
+              <div class="form-group">
+                <label for="default">Default:</label>
+                <input type="text" class="form-control" id="default" [(ngModel)]="field.default" name="default">
+              </div>
+              <div class="form-group">
+                  <label for="selection">Sequence:</label>
+                  <input type="text" class="form-control" id="selection" [(ngModel)]="field.sequence" name="selection">
+                </div>
+              <div class="form-group">
+                  <label for="label">Label:</label>
+                  <input type="text" class="form-control" id="label" [(ngModel)]="field.label" name="label">
+                </div>
+
+                
+                  <div class="form-group">
+                    <label class="form-label" for="typeSelect">Type:</label>
+                    <select id="typeSelect" name="typeSelect" class="form-control" [(ngModel)]="field.type " (ngModelChange)="fetchTableData(field.type )" name="type"  #type="ngModel" required>
+                      <option [ngValue]="field.type">{{ field.type }}</option>
+                      <option value="Button">Button</option>
+                      <option value="Checkbox">Checkbox</option>
+                      <option value="Radio">Radio</option>
+                      <option value="Select">Select</option>
+                      <option value="Text">Text</option>
+                      <option value="TextArea">Text Area</option>
+                      <option value="Radio-Vertical">Radio-Vertical</option>
+                    </select>
+                    <div *ngIf="type.invalid" class="error">
+                      Type is required.
+                    </div>
+                  </div>
+
+
+                  
+                    <div *ngIf="field.type === 'Radio' || field.type === 'Select' || field.type === 'Radio-Vertical'"> 
+                      <div class="form-group">
+                    <label for="DId">DomainTable Name:</label>
+                    <input type="text" class="form-control" id="DId" [(ngModel)]="field.domainTableName" name="DId">
+                  </div>
+                  <button (click)="showAdditionalContent = !showAdditionalContent">Change?</button>
+
+                        <!-- Additional content that is displayed when the button is pressed -->
+                        <div *ngIf="showAdditionalContent">
+                          <div class="form-group">
+                            <label class="form-label">DomainTable Name:</label>
+                            <select *ngIf="tabledata && tabledata.length > 0" [(ngModel)]="tabledataid" (ngModelChange)="fetchDomaindata()" name="tabledata">
+                              <option  >{{ field.domainTableName }}</option>
+                              <option *ngFor="let data of tabledata" [ngValue]="data.id">{{ data.name }}</option>
+                            </select>
+                          </div>
+                        </div>
+
+                </div>
+                                                         
+                  
+            <div class="form-group">
+              <label for="condition">Condition:</label>
+              <input type="text" class="form-control" id="condition" [(ngModel)]="field.condition" name="condition">
+            </div>               
+             <div class="form-group">
+                <label for="QuoteReadOnly">QuoteReadOnly:</label>
+                <input type="text" class="form-control" id="QuoteReadOnly" [(ngModel)]="field.quoteReadOnly" name="QuoteReadOnly">
+              </div>
+              <div class="form-group">
+                <label for="QuoteRequired">QuoteRequired:</label>
+                <input type="text" class="form-control" id="QuoteRequired" [(ngModel)]="field.quoteRequired" name="QuoteRequired">
+              </div>
+              <div class="form-group">
+                <label for="QuoteDisplay">QuoteDisplay:</label>
+                <input type="text" class="form-control" id="QuoteDisplay" [(ngModel)]="field.quoteDisplay" name="QuoteDisplay">
+              </div>
+       
+                 <div class="form-group">
+                <div class="col col-lg-12 text-center">
+                  <button class="btn btn-primary" (click)="updateField(field)">Update</button>
+                </div>
+              </div> 
+              
+              
+               
+              <br>
+              <br>
+            
+
+            </form>
+          </div>          
+        </form>
+      </div>
+
+        <div class="col col-lg-12 text-center">
+          <button class="btn btn-outline-dark my-2" routerLink="/">Back -></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

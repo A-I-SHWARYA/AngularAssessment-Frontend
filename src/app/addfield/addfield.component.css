@@ -1,0 +1,71 @@
+.form-control{
+   
+    width: 10rem;
+    height: 2rem;
+
+
+}
+.form-label{
+    margin-top: 1rem;
+}
+
+
+.container{
+    margin-top: 5rem;
+}
+
+.form-check{
+    margin-top: 1rem;
+}
+
+.btn{
+    margin-top: 1rem;
+}
+
+.error{
+    font-size: 0.6rem;
+    color: crimson;
+}
+.form-container {
+    max-width: 1000px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Add padding for spacing */
+    border: 5px solid #ccc; /* Add a border to the form */
+    border-radius: 5px; /* Add rounded corners if desired */
+    margin-top: 2rem;
+  }
+
+  .bold-key {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+
+  .field-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    background-color: #f8f8f8;
+    /* Add other styles as needed */
+  }
+
+  /* In your component's CSS or a global stylesheet */
+.custom-label {
+    text-align: center; /* Center-align the text */
+    font-weight: bold; /* Make the text slightly bold */
+  }
+
+
+  /* In your component's CSS or a global stylesheet */
+  .select-container {
+    margin-top: 10px; /* Add margin for spacing between the label and the dropdown */
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  .head{
+    text-align: center;
+     font-weight: bold;
+     margin-top: 2rem;
+  }

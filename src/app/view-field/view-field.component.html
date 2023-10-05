@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <div class="div col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 ">
+            <div class="row ">
+                <div class="div col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12  container-fluid  ">
+                  <h5 class="head">FIELD  DETAILS</h5>
+                  <div *ngIf="newField && newField.length > 0"> 
+
+                    <div class="card" *ngFor="let field of newField ">
+                      <h5 class="card-header"></h5>
+                      <div class="card-body m-5" >
+                       
+                        <div class="form-group">
+                          <label class="form-label custom-label" for="textareaInput">Column Name : {{columnname}}</label>
+                        </div>
+                        <p class="card-text"><span class="bold-key"> Form Name:</span>{{ field?.formName}} </p>
+                        <p class="card-text"><span class="bold-key"> DomainTable Name:</span>{{field?.domainTableName }}</p>
+                        
+                        
+                        <p class="card-text"><span class="bold-key">Condition:</span> {{ field?.condition }}</p>
+                        <p class="card-text"><span class="bold-key">Default:</span> {{ field?.default }}</p>
+                        
+                        <p class="card-text"><span class="bold-key">Label:</span> {{ field?.label }}</p>
+                        <p class="card-text"><span class="bold-key">QuoteDisplay:</span> {{ field?.quoteDisplay }}</p>
+                        <p class="card-text"><span class="bold-key">QuoteReadOnly:</span> {{ field?.quoteReadOnly }}</p>
+                        <p class="card-text"><span class="bold-key">QuoteRequired:</span> {{ field?.quoteRequired }}</p>
+                        <p class="card-text"><span class="bold-key">Sequence:</span> {{ field?.sequence }}</p>
+                        <p class="card-text"><span class="bold-key">Type:</span> {{ field?.type }}</p>
+                        
+                        
+                      </div>
+                  </div>
+
+                  </div>
+                    
+
+                    <div class="col col-lg-12 text-center">
+                      <button  class="btn btn-outline-dark my-2" routerLink="/">Back -></button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

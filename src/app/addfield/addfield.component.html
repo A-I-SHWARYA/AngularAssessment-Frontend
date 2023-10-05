@@ -1,0 +1,102 @@
+<div class="container">
+    <div class="row">
+        <div class="div col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+          <h5 class="head">ADD FIELD DETAILS</h5>
+          <div class="form-container">
+            <form #myForm="ngForm" (ngSubmit)="onSubmit()">                
+
+                  <div class="form-group">
+                    <label class="form-label custom-label" for="textareaInput">Column Name : {{columnname}}</label>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="textareaInput">Condition:</label>
+                    <textarea id="textareaInput" name="textareaInput" class="form-control"  [(ngModel)]="formData.Condition"></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label  class="form-label"for="textareaInput">Default:</label>
+                    <textarea id="textareaInput" name="textareaInput" class="form-control"  [(ngModel)]="formData.Default"></textarea>
+                  </div>
+
+                  
+                <div class="form-group">
+                    <label class="form-label" for="textareaInput">Label:</label>
+                    <textarea id="textareaInput" name="textareaInput" class="form-control"  [(ngModel)]="formData.Label"></textarea>
+                </div>
+
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="checkboxInput" name="checkboxInput" [(ngModel)]="formData.QuoteDisplay">
+                    <label class="form-check-label" for="checkboxInput">QuoteDisplay</label>
+                </div>
+
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="checkboxInput" name="checkboxInput" [(ngModel)]="formData.QuoteReadOnly">
+                    <label class="form-check-label" for="checkboxInput">QuoteReadOnly</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="checkboxInput" name="checkboxInput" [(ngModel)]="formData.QuoteRequired">
+                    <label class="form-check-label" for="checkboxInput">QuoteRequired</label>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="numberInput">Sequence:</label>
+                    <input type="number" id="numberInput" name="numberInput" class="form-control" [(ngModel)]="formData.Sequence" #sequence="ngModel" required>
+                    <div *ngIf="sequence.invalid" class="error">
+                      Sequence is required.
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="typeSelect">Type:</label>
+                    <select id="typeSelect" name="typeSelect" class="form-control" [(ngModel)]="selectedType" (ngModelChange)="fetchTableData()" #type="ngModel" required>
+                      <option value="Button">Button</option>
+                      <option value="Checkbox">Checkbox</option>
+                      <option value="Radio">Radio</option>
+                      <option  value="Select">Select</option>
+                      <option value="Text">Text</option>
+                      <option value="TextArea">Text Area</option>
+                      <option value="Radio-Vertical">Radio-Vertical</option>
+                    </select>
+                    <div *ngIf="type.invalid" class="error">
+                      Type is required.
+                    </div>                    
+                  </div>
+
+
+
+                  <div *ngIf="selectedType === 'Radio' || selectedType === 'Select' || selectedType === 'Radio-Vertical'" >
+                    <div class="form-group">
+                      <label class="form-label">DomainTable Name:</label>
+                    <select *ngIf="tabledata && tabledata.length > 0" [(ngModel)]="tabledataid" (ngModelChange)="fetchDomaindata()"  name="tabledata">
+                      <option value="">Select an option</option>
+                      <option *ngFor="let data of tabledata" [ngValue]="data.id">{{ data.name }}</option>
+                    </select>
+                    </div>                    
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label">Form Name:</label>
+                    <div class="select-container">
+                      <select *ngIf="Formrecords && Formrecords.length > 0"  [(ngModel)]="selectedForm"   name="Formrecords">
+                        <option value="">Select an option</option>
+                        <option *ngFor="let form of Formrecords" [ngValue]="form">>{{ form.name }}</option>
+                      </select>
+                    </div>                    
+                  </div>
+                  
+              <br>
+              <br>
+              <br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+
+          <br>
+          <br>
+          <br>              
+              
+        </div>
+    </div>
+</div>
