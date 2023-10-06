@@ -6,8 +6,8 @@
     margin-top: 2rem;
 }
 .custom-label {
-    text-align: center; /* Center-align the text */
-    font-weight: bold; /* Make the text slightly bold */
+    text-align: center; 
+    font-weight: bold; 
   }
   .head{
     text-align: center; 
@@ -18,8 +18,7 @@
     margin-top: 5px;
     padding: 5px;
     margin-bottom: 5px;
-    background-color: #5e5b5b; /* Your desired background color */
-  }
+    background-color: #5e5b5b; }
   
 
   .form-con {
@@ -28,10 +27,10 @@
     margin-left: 1rem;
     margin-bottom: 10rem;
     margin-right: 0.1rem;
-    max-width: 5000px; /* Adjust the maximum width as needed */
-   /* margin: 0 auto; Center the container horizontally */
-    padding: 20px; /* Add padding for spacing */
-    border: 5px solid #ccc; /* Add a border to the form */
-    border-radius: 5px; /* Add rounded corners if desired */
+    max-width: 5000px; 
+  
+    padding: 20px; 
+    border: 5px solid #ccc; 
+    border-radius: 5px; 
     
   }

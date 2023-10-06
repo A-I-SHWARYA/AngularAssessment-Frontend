@@ -3,8 +3,8 @@
     margin-right: 5px;
   }
   .custom-label {
-    text-align: center; /* Center-align the text */
-    font-weight: bold; /* Make the text slightly bold */
+    text-align: center; 
+    font-weight: bold; 
   }
 
   .head{
@@ -13,10 +13,10 @@
     font-weight: bold;
   }
   
-  /* styles.css (or your custom CSS file) */
+ 
 .container-fluid{
   margin-top: 5px;
   padding: 5px;
   margin-bottom: 5px;
-  background-color: #f0f0f0; /* Your desired background color */
+  background-color: #f0f0f0; 
 }

@@ -9,14 +9,8 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit{
  
   
-  constructor(/*private http:HttpClient,*/ private myRouter:Router) { }
+  constructor( private myRouter:Router) { }
 
-  /*logout=()=>{
-    
-    this.myRouter.navigate(["/"])
-
-
-  }*/
 
   ngOnInit(): void {
   }

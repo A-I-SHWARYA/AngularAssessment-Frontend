@@ -45,15 +45,15 @@
   text-align: center;
   vertical-align: middle; /* Vertically center table cells */
 }
-/* CSS to style the table container */
+
 .table-container {
     margin-top: 0.1rem;
     margin-bottom: 5rem;
     margin-left: 20rem;
     margin-right: 5rem;
-    /*margin: 0 auto;  Center the container horizontally */
-    max-width: 800px; /* Adjust the maximum width as needed */
-    padding: 0 15px; /* Add padding to the left and right to create space */
+    
+    max-width: 800px; 
+    padding: 0 15px; 
   }
 
   .searchcol{

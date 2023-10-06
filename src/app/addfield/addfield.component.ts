@@ -63,7 +63,7 @@ formData:any={
 
     if ( this.formData.Sequence === null ) {
       alert('Fill the required fields'); 
-      return; // Exit the function without making the API call
+      return; 
     }
      if (!this.selectedType || this.selectedType.trim() === '') {
       

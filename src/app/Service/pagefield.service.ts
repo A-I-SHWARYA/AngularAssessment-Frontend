@@ -9,16 +9,19 @@ import { Aocolumn } from '../Models/Aocolum';
 import { DomainTable } from '../Models/DomainTable';
 
 
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class PagefieldService {
-  apiUrl:string=environment.baseApiUrl;
+  //apiUrl:string=environment.baseApiUrl;
+  private apiUrl:any = environment.apiUrls
   
   constructor(private http:HttpClient) { }
   
   getColumns(searchTerm: string) {
-    return this.http.get<Aocolumn>(this.apiUrl+"api/Field/getColumns/"+searchTerm);
+    return this.http.get<Aocolumn>(this.apiUrl.getColumns+searchTerm);
   }
 
 
@@ -26,7 +29,7 @@ export class PagefieldService {
 
   editFieldRecord(data:Field){
    
-    return this.http.put(this.apiUrl+"api/Field/",data);
+    return this.http.put(this.apiUrl.editFieldRecord,data);
   }
 
 
@@ -35,19 +38,19 @@ export class PagefieldService {
 
 
   addFieldRecord (data:Field){   
-    return this.http.post<Field>(this.apiUrl+"api/Field",data)
+    return this.http.post<Field>(this.apiUrl.addFieldRecord,data)
   }
 
   getDomainTableData(id:DomainTable){
-    return this.http.get<DomainTable>(this.apiUrl+"api/Field/getDomain/"+id);
+    return this.http.get<DomainTable>(this.apiUrl.getDomainTableData+id);
   }
 
   getTableName(){
-    return this.http.get<Aotable>(this.apiUrl+"api/Field/getTable");
+    return this.http.get<Aotable>(this.apiUrl.getTableName);
   }
 
   getFormName(){
-    return this.http.get<Form>(this.apiUrl+"api/Field/GetForm");
+    return this.http.get<Form>(this.apiUrl.getFormName);
   }
 
 
@@ -59,16 +62,16 @@ export class PagefieldService {
 
 
   viewFieldRecord(id:Aocolumn){
-    return this.http.get<Field>(this.apiUrl+"api/Field/viewRecords/"+id);
+    return this.http.get<Field>(this.apiUrl.viewFieldRecord+id);
   
   }
   
   getFormNameInView(id:Form){
-    return this.http.get<Form>(this.apiUrl+"api/Field/getFormsView/"+id);
+    return this.http.get<Form>(this.apiUrl.getFormNameInView+id);
   }
 
   getDomainNameInView(id:DomainTable){
-      return this.http.get<Aotable>(this.apiUrl+"api/Field/getDomainView/"+id);
+      return this.http.get<Aotable>(this.apiUrl.getDomainNameInView+id);
     }
   }
 
